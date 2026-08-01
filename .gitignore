@@ -1,0 +1,6 @@
+target/
+_build/
+.mooncakes/
+.repos/
+*.trace.jsonl
+*.stderr.log
