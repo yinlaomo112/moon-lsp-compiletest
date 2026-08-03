@@ -1,0 +1,102 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "yinlaomo112/moon-lsp-compiletest/model"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+pub(all) suberror RunnerError {
+  InvalidCase(path~ : String, reason~ : String)
+  InvalidOptions(reason~ : String)
+  SessionFailed(case_name~ : String, reason~ : String)
+} derive(Eq, @debug.Debug)
+
+// Types and methods
+pub(all) struct CaseResult {
+  name : String
+  status : CaseStatus
+  before : DiagnosticSnapshot?
+  after : DiagnosticSnapshot?
+  differences : Array[String]
+  trace_path : String?
+  stderr_path : String?
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CaseSpec {
+  name : String
+  case_dir : String
+  before_source : String
+  after_source : String
+} derive(Eq, @debug.Debug)
+
+pub(all) enum CaseStatus {
+  Passed
+  AssertionFailed
+  InfrastructureFailed
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Diagnostic {
+  range : Range
+  severity : Severity?
+  code : DiagnosticCode?
+  source : String?
+  message : String
+} derive(Eq, @debug.Debug)
+
+pub(all) enum DiagnosticCode {
+  Text(String)
+  Number(Int)
+} derive(Eq, @debug.Debug)
+
+pub(all) struct DiagnosticSnapshot {
+  uri : String
+  version : Int?
+  diagnostics : Array[Diagnostic]
+  unversioned : Bool
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Expectation {
+  stage : Stage
+  range : Range
+  severity : Severity
+  code : DiagnosticCode?
+  message_substring : String
+  marker_line : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Position {
+  line : Int
+  character : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Range {
+  start : Position
+  end : Position
+} derive(Eq, @debug.Debug)
+
+pub(all) struct RunOptions {
+  server_command : String
+  timeout_ms : Int
+  quiet_window_ms : Int
+  trace : Bool
+} derive(Eq, @debug.Debug)
+
+pub(all) enum Severity {
+  Error
+  Warning
+  Information
+  Hint
+} derive(Eq, @debug.Debug)
+
+pub(all) enum Stage {
+  Before
+  After
+} derive(Eq, @debug.Debug)
+
+// Type aliases
+
+// Traits
+
