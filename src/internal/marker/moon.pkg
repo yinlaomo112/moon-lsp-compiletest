@@ -1,0 +1,4 @@
+import {
+  "yinlaomo112/moon-lsp-compiletest/model",
+  "moonbitlang/core/strconv",
+}
