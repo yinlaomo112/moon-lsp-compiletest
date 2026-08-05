@@ -1,0 +1,35 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "yinlaomo112/moon-lsp-compiletest/internal/framing"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn encode_frame(String) -> Bytes
+
+// Errors
+pub(all) suberror FramingError {
+  MissingContentLength
+  DuplicateContentLength
+  InvalidContentLength(value~ : String)
+  HeaderTooLarge(actual~ : Int, limit~ : Int)
+  ContentTooLarge(actual~ : Int, limit~ : Int)
+  InvalidHeader(reason~ : String)
+  InvalidUtf8
+  UnexpectedEof
+} derive(Eq, @debug.Debug)
+
+// Types and methods
+pub struct FrameDecoder {
+  max_content_length : Int
+  mut buffer : Array[Byte]
+}
+pub fn FrameDecoder::feed(Self, BytesView) -> Array[String] raise FramingError
+pub fn FrameDecoder::finish(Self) -> Unit raise FramingError
+pub fn FrameDecoder::new(max_content_length~ : Int) -> Self
+
+// Type aliases
+
+// Traits
+
