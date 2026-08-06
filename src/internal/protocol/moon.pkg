@@ -1,0 +1,5 @@
+import {
+  "yinlaomo112/moon-lsp-compiletest/model",
+  "moonbitlang/core/encoding/utf8",
+  "moonbitlang/core/json",
+}

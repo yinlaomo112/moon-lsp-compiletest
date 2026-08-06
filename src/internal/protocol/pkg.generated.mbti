@@ -1,0 +1,62 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "yinlaomo112/moon-lsp-compiletest/internal/protocol"
+
+import {
+  "yinlaomo112/moon-lsp-compiletest/model",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn classify_message(String) -> MessageKind raise ProtocolError
+
+pub fn decode_publish_diagnostics(String) -> @model.DiagnosticSnapshot? raise ProtocolError
+
+pub fn encode_did_change(String, Int, String, String) -> String
+
+pub fn encode_did_close(String) -> String
+
+pub fn encode_did_open(String, Int, String) -> String
+
+pub fn encode_did_save(String, String) -> String
+
+pub fn encode_exit() -> String
+
+pub fn encode_initialize(RequestId, String, String, Int) -> String
+
+pub fn encode_initialized() -> String
+
+pub fn encode_null_response(RequestId) -> String
+
+pub fn encode_shutdown(RequestId) -> String
+
+pub fn encode_watched_file_changed(String) -> String
+
+pub fn ensure_incremental_sync(String) -> Unit raise ProtocolError
+
+pub fn path_to_file_uri(String) -> String raise ProtocolError
+
+// Errors
+pub(all) suberror ProtocolError {
+  InvalidJson(reason~ : String)
+  InvalidMessage(reason~ : String)
+  UnsupportedCapability(reason~ : String)
+  InvalidDiagnostic(reason~ : String)
+  InvalidFileUri(reason~ : String)
+} derive(Eq, @debug.Debug)
+
+// Types and methods
+pub(all) enum MessageKind {
+  ServerRequest(RequestId, String)
+  Notification(String)
+  Response(RequestId)
+} derive(Eq, @debug.Debug)
+
+pub(all) enum RequestId {
+  Number(Int)
+  Text(String)
+} derive(Eq, @debug.Debug)
+
+// Type aliases
+
+// Traits
+
