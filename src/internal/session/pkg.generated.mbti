@@ -1,0 +1,48 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "yinlaomo112/moon-lsp-compiletest/internal/session"
+
+import {
+  "yinlaomo112/moon-lsp-compiletest/internal/framing",
+  "yinlaomo112/moon-lsp-compiletest/model",
+  "moonbitlang/async/process",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub async fn start(String, String, Int, String?) -> Session raise SessionError
+
+// Errors
+pub(all) suberror SessionError {
+  InvalidOptions(reason~ : String)
+  SpawnFailed(reason~ : String)
+  IoFailed(operation~ : String, reason~ : String)
+  ProtocolFailed(reason~ : String)
+  Timeout(operation~ : String, timeout_ms~ : Int)
+  EarlyExit(status~ : Int)
+  TraceFailed(path~ : String, reason~ : String)
+} derive(Eq, @debug.Debug)
+
+// Types and methods
+pub struct Session {
+  stdin : @process.WriteToProcess
+  stdout : @process.ReadFromProcess
+  decoder : @framing.FrameDecoder
+  pending : Array[String]
+  pid : Int
+  timeout_ms : Int
+  trace_path : String?
+  stderr_path : String
+  mut closed : Bool
+}
+pub async fn Session::await_diagnostics(Self, String, Int, Int) -> @model.DiagnosticSnapshot raise SessionError
+pub async fn Session::close_document(Self, String) -> Unit raise SessionError
+pub async fn Session::open_document(Self, String, String, Int) -> Unit raise SessionError
+pub async fn Session::replace_document(Self, String, String, String, Int) -> Unit raise SessionError
+pub async fn Session::shutdown(Self) -> Unit raise SessionError
+pub fn Session::stderr_path(Self) -> String
+pub fn Session::trace_path(Self) -> String?
+
+// Type aliases
+
+// Traits
+
