@@ -1,0 +1,25 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "yinlaomo112/moon-lsp-compiletest/internal/matcher"
+
+import {
+  "yinlaomo112/moon-lsp-compiletest/model",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn compare(ArrayView[@model.Expectation], ArrayView[@model.Diagnostic]) -> MatchReport
+
+// Errors
+
+// Types and methods
+pub(all) struct MatchReport {
+  passed : Bool
+  missing : Array[@model.Expectation]
+  extra : Array[@model.Diagnostic]
+  differences : Array[String]
+} derive(Eq, @debug.Debug)
+
+// Type aliases
+
+// Traits
+
