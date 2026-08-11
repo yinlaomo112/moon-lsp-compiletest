@@ -1,0 +1,47 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "yinlaomo112/moon-lsp-compiletest"
+
+import {
+  "yinlaomo112/moon-lsp-compiletest/model",
+}
+
+// Values
+pub fn render_report(ArrayView[@model.CaseResult]) -> String
+
+pub async fn run_case(String, @model.RunOptions) -> @model.CaseResult raise @model.RunnerError
+
+pub async fn run_suite(ArrayView[String], @model.RunOptions) -> Array[@model.CaseResult] raise @model.RunnerError
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+pub using @model {type CaseResult}
+
+pub using @model {type CaseSpec}
+
+pub using @model {type CaseStatus}
+
+pub using @model {type Diagnostic}
+
+pub using @model {type DiagnosticCode}
+
+pub using @model {type DiagnosticSnapshot}
+
+pub using @model {type Expectation}
+
+pub using @model {type Position}
+
+pub using @model {type Range}
+
+pub using @model {type RunOptions}
+
+pub using @model {type RunnerError}
+
+pub using @model {type Severity}
+
+pub using @model {type Stage}
+
+// Traits
+

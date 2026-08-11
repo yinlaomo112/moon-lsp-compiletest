@@ -1,0 +1,14 @@
+import {
+  "yinlaomo112/moon-lsp-compiletest/internal/marker",
+  "yinlaomo112/moon-lsp-compiletest/internal/matcher",
+  "yinlaomo112/moon-lsp-compiletest/internal/protocol",
+  "yinlaomo112/moon-lsp-compiletest/internal/session",
+  "yinlaomo112/moon-lsp-compiletest/model",
+  "moonbitlang/async",
+  "moonbitlang/async/fs",
+  "moonbitlang/async/process",
+  "moonbitlang/core/debug",
+  "moonbitlang/core/encoding/utf8",
+}
+
+supported_targets = "native"
