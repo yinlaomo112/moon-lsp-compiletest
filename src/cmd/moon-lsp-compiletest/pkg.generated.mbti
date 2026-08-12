@@ -1,0 +1,14 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "yinlaomo112/moon-lsp-compiletest/cmd/moon-lsp-compiletest"
+
+// Values
+
+// Errors
+
+// Types and methods
+type CliConfig
+
+// Type aliases
+
+// Traits
+
