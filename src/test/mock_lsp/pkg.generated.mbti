@@ -1,0 +1,18 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "yinlaomo112/moon-lsp-compiletest/test/mock_lsp"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+type Scenario derive(Eq, @debug.Debug)
+
+// Type aliases
+
+// Traits
+
