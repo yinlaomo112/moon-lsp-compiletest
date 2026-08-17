@@ -1,0 +1,33 @@
+name: native
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Toolchain versions
+        run: |
+          moon version --all
+          moon-lsp --version
+      - name: Cross-target and native build gates
+        run: |
+          moon fmt --check
+          moon check --target all --deny-warn
+          moon build --target all --deny-warn
+          moon test --target all --warn-list -68-1+73
+          moon check --target native --warn-list +73 --deny-warn
+          moon build --target native --warn-list +73 --deny-warn
+          moon test --target native --warn-list +73 --deny-warn
+          moon info --target all
+          git diff --exit-code
+      - name: Native checks and real LSP acceptance
+        run: bash scripts/acceptance.sh
