@@ -2,10 +2,10 @@
 package "yinlaomo112/moon-lsp-compiletest/internal/session"
 
 import {
-  "yinlaomo112/moon-lsp-compiletest/internal/framing",
-  "yinlaomo112/moon-lsp-compiletest/model",
   "moonbitlang/async/process",
   "moonbitlang/core/debug",
+  "yinlaomo112/moon-lsp-compiletest/internal/framing",
+  "yinlaomo112/moon-lsp-compiletest/model",
 }
 
 // Values

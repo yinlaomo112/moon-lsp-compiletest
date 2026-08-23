@@ -2,8 +2,8 @@
 package "yinlaomo112/moon-lsp-compiletest/internal/matcher"
 
 import {
-  "yinlaomo112/moon-lsp-compiletest/model",
   "moonbitlang/core/debug",
+  "yinlaomo112/moon-lsp-compiletest/model",
 }
 
 // Values
