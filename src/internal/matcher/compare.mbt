@@ -205,12 +205,12 @@ fn augment(
 
 ///|
 fn describe_expectation(expectation : @model.Expectation) -> String {
-  "marker line \{expectation.marker_line}: line \{expectation.range.start.line}, \{severity_name(Some(expectation.severity))} \{code_name(expectation.code)} containing \{to_repr(expectation.message_substring)}"
+  "marker line \{expectation.marker_line}: line \{expectation.range.start.line}, \{severity_name(Some(expectation.severity))} \{code_name(expectation.code)} containing \{repr(expectation.message_substring)}"
 }
 
 ///|
 fn describe_diagnostic(diagnostic : @model.Diagnostic) -> String {
-  "line \{diagnostic.range.start.line}: \{severity_name(diagnostic.severity)} \{code_name(diagnostic.code)} message \{to_repr(diagnostic.message)}"
+  "line \{diagnostic.range.start.line}: \{severity_name(diagnostic.severity)} \{code_name(diagnostic.code)} message \{repr(diagnostic.message)}"
 }
 
 ///|
@@ -258,7 +258,7 @@ fn append_field_differences(
   }
   if !diagnostic.message.contains(expectation.message_substring) {
     differences.push(
-      "\{prefix}: message expected substring \{to_repr(expectation.message_substring)}, got \{to_repr(diagnostic.message)}",
+      "\{prefix}: message expected substring \{repr(expectation.message_substring)}, got \{repr(diagnostic.message)}",
     )
   }
 }
